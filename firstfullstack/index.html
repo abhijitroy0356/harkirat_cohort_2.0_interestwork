@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=s, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        async function ref(){
+            const a = document.getElementById("num1").value
+            const b = document.getElementById("num2").value
+            const c = document.getElementById("num3").value
+            console.log(a)
+            console.log(b)
+            console.log(c)
+            const response = await fetch(`http://localhost:3000/interest/?amount=${a}&rate=${b}&time=${c}`)
+
+           
+            // console.log(gotit)
+            document.getElementById("ans").innerHTML= await response.text()
+        }
+    </script>
+
+    <div ><input id="num1" type="number" placeholder="enter a number"/></div>
+    <div ><input  id="num2" type="number" placeholder="enter a number"/></div>
+    <div ><input id="num3" type="number" placeholder="enter a number"/></div>
+    <button type="submit" onclick="ref()">submit</button>
+    <div>you answer is</div>
+    <div id="ans"></div>
+</body>
+</html>
